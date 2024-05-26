@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import com.scm.helpers.AppConstants;
 import org.hibernate.validator.internal.util.logging.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.scm.entites.User;
@@ -20,12 +22,16 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepo userRepo;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     Logger logger= org.slf4j.LoggerFactory.getLogger(this.getClass());
 
     @Override
     public User saveUser(User user) {
         String userId= UUID.randomUUID().toString();
         user.setUserID(userId);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoleList(List.of(AppConstants.ROLE_USER));
         return userRepo.save(user);
     }
 
