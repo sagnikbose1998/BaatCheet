@@ -3,7 +3,7 @@ package com.scm.services;
 import java.util.List;
 import java.util.Optional;
 
-import com.scm.entites.User;
+import com.scm.entities.User;
 
 /**
  * UserService
