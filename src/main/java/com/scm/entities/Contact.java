@@ -37,7 +37,7 @@ public class Contact {
     private boolean favourite=false;
 
     private String websiteLink;
-    private String LinkedInLink;
+    private String linkedInLink;
     
     @ManyToOne
     private User user;
