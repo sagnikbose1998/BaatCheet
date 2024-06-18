@@ -7,9 +7,12 @@ import com.scm.helpers.Helper;
 import com.scm.helpers.Message;
 import com.scm.helpers.MessageType;
 import com.scm.services.ContactService;
+import com.scm.services.ImageService;
 import com.scm.services.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -19,12 +22,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.UUID;
+
 @Controller
 @RequestMapping("/user/contacts")
 public class ContactController {
 
+    private Logger logger= LoggerFactory.getLogger(ContactController.class);
+
     @Autowired
     private ContactService contactService;
+
+    @Autowired
+    private ImageService imageService;
 
     @Autowired
     UserService userService;
@@ -53,6 +63,15 @@ public class ContactController {
         String username= Helper.getEmailOfLoggedInUser(authentication);
         User user=userService.getUserByEmail(username);
         Contact contact=new Contact();
+
+        //image processing check
+        logger.info("Image display : {}",contactForm.getContactImage().getOriginalFilename());
+
+        String fileName= UUID.randomUUID().toString();
+        String fileURL=imageService.uploadImage(contactForm.getContactImage(),fileName);
+
+
+        //converting contactform object to Contact to save to DB
         contact.setName(contactForm.getName());
         contact.setEmail(contactForm.getEmail());
         contact.setPhoneNumber(contactForm.getPhoneNumber());
@@ -61,9 +80,12 @@ public class ContactController {
         contact.setLinkedInLink(contactForm.getLinkedInLink());
         contact.setFavourite(contactForm.isFavourite());
         contact.setWebsiteLink(contactForm.getWebsiteLink());
+        contact.setPicture(fileURL);
+        contact.setCloudinaryImagePublicId(fileName);
         contact.setUser(user);
 
         contactService.save(contact);
+        System.out.println(contactForm);
         session.setAttribute("message",Message.builder()
                 .content("Succesfully added a new contact")
                 .type(MessageType.green)

@@ -28,7 +28,7 @@
                     <h1 class="text-2xl font-semibold text-left">Add New Contact</h1>
                     <p class="text-gray-500 text-left">
                         This contact will be stored on cloud, you can direct email this
-                        client from scm...
+                        client from BaatCheet...
                     </p>
 
                     <form
@@ -37,6 +37,7 @@
                             data-th-action="@{'/user/contacts/add'}"
                             data-th-object="${contactForm}"
                             method="post"
+                            enctype="multipart/form-data"
 
                     >
                         <!-- name form -->
@@ -56,7 +57,7 @@
                                         data-th-field="*{name}"
                                         type="text"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        placeholder="name"
+                                        placeholder="Name"
                                 />
                             </div>
                             <p
@@ -179,7 +180,7 @@
                                         <input
                                                 data-th-field="*{websiteLink}"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                placeholder="htt://learncodewithdurgesh.com/"
+                                                placeholder="http://[WebsiteLink].com/"
                                         />
                                     </div>
                                 </div>
@@ -197,7 +198,7 @@
                                                 type="text"
                                                 data-th-field="*{linkedInLink}"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                placeholder="htt://learncodewithdurgesh.com/"
+                                                placeholder="http://[linkedInlink].com/"
                                         />
                                     </div>
                                 </div>
@@ -212,10 +213,12 @@
                             >Contact Image</label
                             >
                             <input
+                                    id="image_file_input"
                                     class="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                    id="large_size"
+                                    data-th-field="*{contactImage}"
                                     type="file"
                             />
+                            <img class="max-h-35 shadow m-3 mx-auto rounded-lg" src="" alt="" id="upload_image_preview">
                         </div>
 
                         <!-- favorite checkbox -->
@@ -229,7 +232,7 @@
                             <label
                                     for="default-checkbox"
                                     class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                            >Is this contact is your favorite one ?</label
+                            >Is this contact is your favourite one ?</label
                             >
                         </div>
 
@@ -254,6 +257,7 @@
     </div>
 </div>
 
+<script data-th-src="@{'/js/admin.js'}"></script>
 <script>
       console.log("this is profile page");
     </script>
