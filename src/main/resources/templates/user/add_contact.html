@@ -218,6 +218,13 @@
                                     data-th-field="*{contactImage}"
                                     type="file"
                             />
+                            <p
+                                    class="text-red-500"
+                                    data-th-if="${#fields.hasErrors('contactImage')}"
+                                    data-th-errors="*{contactImage}"
+                            >
+                                Invalid Name
+                            </p>
                             <img class="max-h-35 shadow m-3 mx-auto rounded-lg" src="" alt="" id="upload_image_preview">
                         </div>
 

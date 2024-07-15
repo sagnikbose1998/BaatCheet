@@ -92,4 +92,6 @@ public class ContactController {
                 .build());
         return "redirect:/user/contacts/add";
     }
+
+    // view contact
 }
