@@ -19,12 +19,17 @@ public interface ContactService {
 
     Contact getById(String id);
 
-    List<Contact> search(String name, String email, String phoneNumber);
+    Page<Contact> searchByName(String nameKeyword,int size, int page,String sortBy, String order,User user);
+
+    Page<Contact> searchByEmail(String emailKeyword,int size, int page,String sortBy, String order,User user);
+
+    Page<Contact> searchByPhone(String phoneKeyword,int size, int page,String sortBy, String order,User user);
 
     List<Contact> getByUserId(String userId);
 
     void delete(String id);
 
     Page<Contact> getByUser(User user, int page, int size, String sortField,String sortDirection);
+
 
 }
