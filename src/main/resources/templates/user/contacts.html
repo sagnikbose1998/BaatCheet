@@ -25,6 +25,7 @@ View Contacts
             <div class="contacts_container p-5">
 
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <div data-th-replace="~{message::messagebox}"></div>
                     <form data-th-object="${contactSearchForm}" action="" data-th-action="@{'/user/contacts/search'}">
                         <div class="flex items-center justify-start space-x-3 p-5 bg-white dark:bg-gray-900 md:flex-row">
                             <!-- Dropdown Select -->
@@ -102,9 +103,14 @@ View Contacts
                             </td>
                             <td class="px-6 py-4">
                                 <div>
-                                    <a href=""><i class="fa-solid w-6 h-6 fa-trash"></i></a>
-                                    <a href=""><i class="fa-solid w-6 h-6 fa-pen"></i></a>
-                                    <a href=""><i class="fa-solid w-6 h-6 fa-eye"></i></a>
+                                        <!--<a data-th-href="@{'/user/contacts/delete/'+*{id}}">-->
+                                        <button th:onclick="deleteContact([[${c.id}]])">
+                                        <i class="fa-solid w-6 h-6 fa-trash"></i></button>
+
+                                    <a data-th-href="@{'/user/contacts/view/'+*{id}}"><i class="fa-solid w-6 h-6 fa-pen"></i></a>
+                                    <button th:onclick="loadContactdata([[${c.id}]])">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
                                 </div>
                             </td>
                         </tr>
@@ -143,22 +149,13 @@ View Contacts
                         </nav>
                     </div>
                 </div>
-
             </div>
         </div>
+        <div data-th-replace="~{user/contact_modal::contact}">Hello</div>
     </div>
+
 </div>
 
-<script>
-      console.log("this is profile page");
-
-
-
-
-
-
-
-
-</script>
+<script data-th-src="@{'/js/contact.js'}"></script>
 </body>
 </html>

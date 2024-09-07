@@ -3,6 +3,7 @@ package com.scm.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,27 +22,25 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Contact {
-    
+
     @Id
     private String id;
     private String name;
-    
+
     private String email;
-    
+
     private String phoneNumber;
     private String address;
-    
     private String picture;
     @Column(length = 1000)
     private String description;
     private boolean favourite=false;
-
     private String websiteLink;
     private String linkedInLink;
-
     private String cloudinaryImagePublicId;
-    
+
     @ManyToOne
+    @JsonIgnore
     private User user;
 
      @OneToMany(mappedBy = "contact",cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval = true)
