@@ -35,7 +35,7 @@ public class User implements UserDetails {
     private String profilePic;
     private String phoneNumber;
     @Getter(AccessLevel.NONE)
-    private boolean enabled=true;
+    private boolean enabled=false;
     private boolean emailVerified;
     private boolean phoneVerified;
 

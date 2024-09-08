@@ -19,12 +19,12 @@ public class FileValidator implements ConstraintValidator<ValidFile, MultipartFi
         if (file == null || file.isEmpty()) {
             context.disableDefaultConstraintViolation();
             context.buildConstraintViolationWithTemplate("File cannot be empty").addConstraintViolation();
-            return false;
+            return true ;
         }
 
         if (file.getSize() > MAX_FILE_SIZE) {
-            context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate("File size exceeded. Should be less than 2 MB").addConstraintViolation();
+          //  context.disableDefaultConstraintViolation();
+           // context.buildConstraintViolationWithTemplate("File size exceeded. Should be less than 2 MB").addConstraintViolation();
             return false;
         }
 

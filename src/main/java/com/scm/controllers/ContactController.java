@@ -70,8 +70,6 @@ public class ContactController {
         //image processing check
         logger.info("Image display : {}",contactForm.getContactImage().getOriginalFilename());
 
-        String fileName= UUID.randomUUID().toString();
-        String fileURL=imageService.uploadImage(contactForm.getContactImage(),fileName);
 
 
         //converting contactform object to Contact to save to DB
@@ -83,8 +81,16 @@ public class ContactController {
         contact.setLinkedInLink(contactForm.getLinkedInLink());
         contact.setFavourite(contactForm.isFavourite());
         contact.setWebsiteLink(contactForm.getWebsiteLink());
-        contact.setPicture(fileURL);
-        contact.setCloudinaryImagePublicId(fileName);
+
+
+        if(contactForm.getContactImage()!=null && !contactForm.getContactImage().isEmpty()){
+            String fileName= UUID.randomUUID().toString();
+            String fileURL=imageService.uploadImage(contactForm.getContactImage(),fileName);
+
+            contact.setPicture(fileURL);
+            contact.setCloudinaryImagePublicId(fileName);
+        }
+
         contact.setUser(user);
 
         contactService.save(contact);
