@@ -181,7 +181,7 @@ public class ContactController {
 
     @PostMapping("/update/{contactId}")
     public String updateContact(@PathVariable("contactId") String contactId,Model model,
-                                @Valid @ModelAttribute ContactForm contactForm,BindingResult bindingResult){
+                                @Valid @ModelAttribute ContactForm contactForm,BindingResult bindingResult,HttpSession session){
          if(bindingResult.hasErrors())
              return "user/update_contact_view";
 
@@ -208,8 +208,8 @@ public class ContactController {
         }
 
         Contact updateCon= contactService.update(con);
-        logger.info("Updated contect: {}",updateCon);
-        model.addAttribute("message",Message.builder()
+        logger.info("Updated contact: {}",updateCon);
+        session.setAttribute("message",Message.builder()
                 .content("Contact updated")
                 .type(MessageType.green)
                 .build());

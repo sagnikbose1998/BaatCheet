@@ -46,6 +46,8 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
     private List<Contact> contacts = new ArrayList<>();
 
+    private String emailToken;
+
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roleList= new ArrayList<>();
 

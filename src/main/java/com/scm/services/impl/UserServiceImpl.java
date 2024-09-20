@@ -5,6 +5,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 import com.scm.helpers.AppConstants;
+import com.scm.helpers.Helper;
+import com.scm.services.EmailService;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,6 +24,9 @@ public class UserServiceImpl implements UserService {
     private UserRepo userRepo;
 
     @Autowired
+    private EmailService emailService;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
     Logger logger= org.slf4j.LoggerFactory.getLogger(this.getClass());
 
@@ -31,7 +36,15 @@ public class UserServiceImpl implements UserService {
         user.setUserID(userId);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoleList(List.of(AppConstants.ROLE_USER));
-        return userRepo.save(user);
+        String emailToken=UUID.randomUUID().toString();
+        String emailLink= Helper.getLinkForEmailVerification(emailToken);
+        user.setEmailToken(emailToken);
+        User savedUser= userRepo.save(user);
+
+        emailService.sendEmail(savedUser.getEmail(),"Verify Email :BaatCheet -> Smart Contact Manager",emailLink);
+
+        return savedUser;
+
     }
 
     @Override
