@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" th:replace= "~{base :: parent(~{::#content},~{::title},~{::script})}">
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
 <head>
-    <title>About page</title>
+    <title>About | BaatCheet</title>
 </head>
 <body>
-    <section id="content">
-        <h1>about page</h1>
-    </section>
+<section id="content" class="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center">
+    <div class="bg-white dark:bg-gray-900 shadow-md rounded-lg p-10 max-w-4xl text-center">
+        <h1 class="text-4xl font-bold mb-6 text-gray-800 dark:text-white">About BaatCheet</h1>
+        <p class="text-lg text-gray-600 mb-4 dark:text-white">
+            BaatCheet is a powerful tool designed to help users efficiently manage their contacts. Whether you’re a professional, business owner, or someone with a vast network, BaatCheet
+            offers a seamless experience to add, organize, and communicate with your contacts.
+        </p>
+        <p class="text-lg text-gray-600 mb-4 dark:text-white">
+            With user-friendly features such as contact storage with pictures, email integration, cloud uploads, and dark/light themes, BaatCheet ensures that you can manage all your communication and contacts from one central platform. Customize, search, and export your data with ease.
+        </p>
+        <p class="text-lg text-gray-600 dark:text-white">
+            Stay connected, stay organized, and experience the simplicity of managing your contacts like never before.
+        </p>
+    </div>
+</section>
 
-    <script>
-        console.log("about")
+<script>
+        console.log("about");
     </script>
 </body>
 </html>

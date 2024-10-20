@@ -1,17 +1,64 @@
 <!DOCTYPE html>
-<html
-  lang="en"
-  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
->
-  <head>
-    <title>Services page</title>
-  </head>
-  <body>
-    <div id="content">
-      <h1>this is content SERVICE</h1>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+<head>
+  <title>Services | Smart Contact Manager</title>
+</head>
+<body>
+<section id="content" class="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-12">Our Services</h1>
+    <!-- Service 1 -->
+    <div class="bg-white dark:bg-gray-700 shadow-lg rounded-lg p-6">
+      <h2 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Contact Management</h2>
+      <p class="text-gray-600 dark:text-gray-300">
+        Seamlessly add, edit, and manage your contacts with pictures and custom fields. Store your contact data in the cloud.
+      </p>
     </div>
-    <script>
-      console.log("service");
+
+    <!-- Service 2 -->
+    <div class="bg-white dark:bg-gray-700 shadow-lg rounded-lg p-6">
+      <h2 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Email Integration</h2>
+      <p class="text-gray-600 dark:text-gray-300">
+        Send personalized emails with attachments directly from the platform, and keep your communication centralized.
+      </p>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="bg-white dark:bg-gray-700 shadow-lg rounded-lg p-6">
+      <h2 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Cloud Storage</h2>
+      <p class="text-gray-600 dark:text-gray-300">
+        Upload and store contact pictures on AWS or Cloudinary, ensuring secure access to your data anytime, anywhere.
+      </p>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="bg-white dark:bg-gray-700 shadow-lg rounded-lg p-6">
+      <h2 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Data Export</h2>
+      <p class="text-gray-600 dark:text-gray-300">
+        Export your contact data into various formats for backup, sharing, or integration with other tools.
+      </p>
+    </div>
+
+    <!-- Service 5 -->
+    <div class="bg-white dark:bg-gray-700 shadow-lg rounded-lg p-6">
+      <h2 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Search & Pagination</h2>
+      <p class="text-gray-600 dark:text-gray-300">
+        Quickly search your contacts and navigate through large datasets with pagination and filtering tools.
+      </p>
+    </div>
+
+    <!-- Service 6 -->
+    <div class="bg-white dark:bg-gray-700 shadow-lg rounded-lg p-6">
+      <h2 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Customizable Themes</h2>
+      <p class="text-gray-600 dark:text-gray-300">
+        Toggle between light and dark themes to suit your preferences and enhance your user experience.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+        console.log("Services");
     </script>
-  </body>
+</body>
 </html>
