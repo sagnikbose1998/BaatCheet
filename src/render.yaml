@@ -1,0 +1,52 @@
+version: 1
+services:
+  - type: web
+    name: baatcheet
+    env: java
+    buildCommand: "mvn clean install"  # Change to "gradle build" if using Gradle
+    startCommand: "java -jar target/your-app.jar"  # Replace with the actual name of your jar file
+    envVars:
+      - key: CLOUDINARY_API_KEY
+        value: "272752878275825"
+      - key: CLOUDINARY_API_SECRET
+        value: "Z-jeXVmuMrrryYTalgHAhrl424c"
+      - key: CLOUDINARY_CLOUD_NAME
+        value: "dxfrpbdru"
+      - key: EMAIL_DOMAIN
+        value: "reachtosagnikbose@gmail.com"
+      - key: EMAIL_HOST
+        value: "smtp.gmail.com"
+      - key: EMAIL_PASSWORD
+        value: "aba75b76fb309f05e57e2c0ef6800306"
+      - key: EMAIL_PORT
+        value: "587"
+      - key: EMAIL_USERNAME
+        value: "api"
+      - key: GITHUB_CLIENT_ID
+        value: "Iv23liOBEu5P5gRqwgpp"
+      - key: GITHUB_CLIENT_SECRET
+        value: "475890d9c132963cd3fdad36360e8e3de25dff04"
+      - key: GOOGLE_CLIENT_ID
+        value: "397205268966-fojm6387nuvv56q4628qufd0ph8uiio2.apps.googleusercontent.com"
+      - key: GOOGLE_CLIENT_SECRET
+        value: "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"
+      - key: MYSQL_HOST
+        value: "your-mysql-host"  # Replace with your MySQL host
+      - key: MYSQL_PORT
+        value: "3306"  # Replace if different
+      - key: MYSQL_DB
+        value: "scm"  # Your MySQL database name
+      - key: MYSQL_USER
+        value: "your-db-username"  # Replace with your MySQL username
+      - key: MYSQL_PASSWORD
+        value: "your-db-password"  # Replace with your MySQL password
+      - key: MAX_FILE_SIZE
+        value: "10MB"
+      - key: MAX_REQUEST_SIZE
+        value: "10MB"
+      - key: SHOW_SQL
+        value: "true"
+      - key: DDL_AUTO
+        value: "update"
+      - key: ACTIVE_PROFILE
+        value: "dev"  # Set to the active profile you want to use
