@@ -24,9 +24,10 @@ public class ScmApplication implements CommandLineRunner {
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+
 	@Override
 	public void run(String... args) throws Exception {
-		User user=new User();
+		User user = new User();
 		user.setUserID(UUID.randomUUID().toString());
 		user.setName("admin");
 		user.setEmail("admin@gmail.com");
@@ -36,7 +37,9 @@ public class ScmApplication implements CommandLineRunner {
 		user.setEnabled(true);
 		user.setAbout("Dummy admin user created");
 		user.setPhoneVerified(true);
-		userRepo.findByEmail("admin@gmail.com").ifPresentOrElse(user1 -> {},()->userRepo.save(user));
+		userRepo.findByEmail("admin@gmail.com").ifPresentOrElse(user1 -> {
+		}, () -> userRepo.save(user));
 		System.out.println("Admin user created");
+	}
 }
 
