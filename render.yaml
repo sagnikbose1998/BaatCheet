@@ -2,7 +2,7 @@ version: 1
 services:
   - type: web
     name: baatcheet
-    runtime: java
+    runtime: java17
     buildCommand: "mvn clean install"  # Change to "gradle build" if using Gradle
     startCommand: "java -jar target/scm-0.0.1-SNAPSHOT.jar"  # Replace with the actual name of your jar file
     envVars:
