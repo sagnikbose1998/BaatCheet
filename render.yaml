@@ -4,7 +4,7 @@ services:
     name: baatcheet
     env: java
     buildCommand: "mvn clean install"  # Change to "gradle build" if using Gradle
-    startCommand: "java -jar target/your-app.jar"  # Replace with the actual name of your jar file
+    startCommand: "java -jar target/scm-0.0.1-SNAPSHOT.jar"  # Replace with the actual name of your jar file
     envVars:
       - key: CLOUDINARY_API_KEY
         value: "272752878275825"
@@ -37,9 +37,9 @@ services:
       - key: MYSQL_DB
         value: "scm"  # Your MySQL database name
       - key: MYSQL_USER
-        value: "your-db-username"  # Replace with your MySQL username
+        value: "root"  # Replace with your MySQL username
       - key: MYSQL_PASSWORD
-        value: "your-db-password"  # Replace with your MySQL password
+        value: "root1234"  # Replace with your MySQL password
       - key: MAX_FILE_SIZE
         value: "10MB"
       - key: MAX_REQUEST_SIZE
