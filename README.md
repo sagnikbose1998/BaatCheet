@@ -28,5 +28,23 @@ Baatcheet is a smart contact management application designed to streamline conta
 - Switch Themes - Toggle between dark and light themes.
 
 
+## Installation
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed on your local machine:
+
+- **Java 8+** - Make sure Java is installed on your system.
+- **Maven** - Required for dependency management and building the project.
+- **MySQL** - Database server for storing user and contact data.
+
+### Steps
+
+1. **Clone the Repository**
+
+   Open a terminal and run:
+
+   git clone https://github.com/your-username/baatcheet.git
+   cd baatcheet
 
 
