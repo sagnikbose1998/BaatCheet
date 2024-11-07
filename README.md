@@ -34,7 +34,7 @@ Baatcheet is a smart contact management application designed to streamline conta
 
 Before you begin, ensure you have the following installed on your local machine:
 
-- **Java 8+** - Make sure Java is installed on your system.
+- **Java 11/17+** - Make sure Java is installed on your system.
 - **Maven** - Required for dependency management and building the project.
 - **MySQL** - Database server for storing user and contact data.
 
