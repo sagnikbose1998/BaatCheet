@@ -46,5 +46,39 @@ Before you begin, ensure you have the following installed on your local machine:
 
    git clone https://github.com/your-username/baatcheet.git
    cd baatcheet
+   
+3. **Set Up database**
+
+   
+   Create a MySQL database named baatcheet (or a different name of your choice).
+   Update the application.properties file with your MySQL configuration:
+
+   spring.datasource.url=jdbc:mysql://localhost:3306/baatcheet
+   spring.datasource.username=YOUR_USERNAME
+   spring.datasource.password=YOUR_PASSWORD
+
+3. **Configure Cloud Storage for Contact Photos**
+
+   AWS configuration
+   cloud.aws.access-key=YOUR_AWS_ACCESS_KEY
+   cloud.aws.secret-key=YOUR_AWS_SECRET_KEY
+
+   OR Cloudinary configuration
+   cloudinary.cloud-name=YOUR_CLOUD_NAME
+   cloudinary.api-key=YOUR_API_KEY
+   cloudinary.api-secret=YOUR_API_SECRET
+
+   
+5. **Build and Run the Application**
+
+   Make sure Maven is installed and run the following commands:
+   mvn clean install
+   mvn spring-boot:run
+   
+7. **Access Baatcheet**
+   
+   Once application is running, access the application
+   http://localhost:8080
+
 
 
