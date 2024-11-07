@@ -1,8 +1,7 @@
 Baatcheet - Smart Contact Manager
 Baatcheet is a smart contact management application designed to streamline contact handling with an intuitive interface and comprehensive features. It allows users to manage contacts efficiently, send emails directly from the app, store images in the cloud, and toggle between themes.
 
-**Features
-**Baatcheet offers a wide array of features:
+Features
 
 User Signup with Email and Password - Users can create an account using their email and password.
 Email Verification - An email verification link is sent to activate the account.
